@@ -30,7 +30,9 @@ body {
   width: 100%;
   height: 400px;
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   padding: 10px;
   transition: all 0.5s ease;
 }
@@ -175,6 +177,11 @@ body {
 }
 
 @media (max-width: 600px) {
+  .wrapper__content .img__qrcode {
+    width: 100%;
+    height: 100%;
+  }
+
   .wrapper {
     height: 600px;
     width: 100%;
