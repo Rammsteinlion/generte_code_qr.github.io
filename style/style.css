@@ -88,24 +88,25 @@ body {
   transform: scale(1.1);
 }
 
-.wrapper__content .img_qr {
+.img_qr {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
-.wrapper__content .img__qrcode {
-  width: 300px;
-  height: 300px;
+.img__qrcode {
+  width: 250px;  /* Tamaño por defecto (desktop) */
+  height: 250px;
+  min-width: 200px; /* Límite mínimo */
 }
 
-.wrapper__content .img__qrcode img {
+.img__qrcode img {
   width: 100%;
   height: 100%;
+  object-fit: contain; /* Evita distorsión */
 }
 
 .modal_componen {
@@ -176,34 +177,24 @@ body {
 }
 
 @media (max-width: 600px) {
-  /* Ajusta el wrapper para móvil */
-  .wrapper {
-    height: auto; /* Altura flexible */
-    min-height: 100dvh; /* Ocupa al menos toda la pantalla */
-    width: 100%;
-    margin: 0;
-    border-radius: 0; /* Elimina bordes redondeados en móvil */
+ .img__qrcode {
+    width: 70vw;     /* 70% del ancho de la pantalla */
+    height: 70vw;    /* Mantiene relación 1:1 (cuadrado) */
+    max-width: 250px; /* Máximo tamaño (opcional) */
+    max-height: 250px;
   }
 
-  /* Contenedor principal flexible */
+  /* Opcional: ajustar el botón si es necesario */
+  #download__wr.button__generate {
+    width: 70vw;
+    max-width: 250px;
+    padding: 12px;
+  }
+
   .wrapper__content {
     flex-direction: column;
-    height: auto;
-    padding: 20px;
-    gap: 30px;
+    transition: all 0.5s ease;
   }
 
-  /* Ajusta el QR para que sea responsive */
-  .wrapper__content .img__qrcode {
-    width: 80vw; /* 80% del ancho de la pantalla */
-    height: 80vw; /* Mantener relación 1:1 */
-    max-width: 300px; /* Límite máximo (opcional) */
-    max-height: 300px;
-  }
-
-  /* Ajusta el formulario/generador */
-  .qr_generate {
-    width: 100%;
-    padding: 0 15px;
-  }
+  
 }
