@@ -178,10 +178,8 @@ body {
 
 @media (max-width: 600px) {
  .img__qrcode {
-    width: 70vw;     /* 70% del ancho de la pantalla */
-    height: 70vw;    /* Mantiene relación 1:1 (cuadrado) */
-    max-width: 250px; /* Máximo tamaño (opcional) */
-    max-height: 250px;
+    width: 70vw;  
+    height: 70vw;  
   }
 
   /* Opcional: ajustar el botón si es necesario */
