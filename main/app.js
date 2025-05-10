@@ -42,36 +42,32 @@ window.onload = () => {
     
   })
 
-  function downloadQr() {
-    if (qrCodeContainer.innerHTML != "") {
-      button__download.style.display = "block";
-      button__download.style.opacity = 1;
+  // ... (código anterior igual)
 
-      // Agregar evento para descargar la imagen
-      button__download.addEventListener("click", function () {
-        const qrCodeImage = qrCodeContainer.querySelector("img");
-        const imageUrl = qrCodeImage.src; 
+function downloadQr() {
+  if (qrCodeContainer.innerHTML !== "") {
+    button__download.style.display = "block";
+    button__download.style.opacity = 1;
 
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
+    button__download.addEventListener("pointerdown", function (e) {
+      e.preventDefault();
+      const qrCodeImage = qrCodeContainer.querySelector("img");
+      if (!qrCodeImage) return;
 
-        const newWidth = 300;
-        const newHeight = 300;
+      const imageUrl = qrCodeImage.src;
+      const link = document.createElement("a");
+      link.href = imageUrl;
+      link.download = "qr_code_" + Date.now() + ".png"; // Nombre único
 
-        canvas.width = newWidth;
-        canvas.height = newHeight;
-
-        const img = new Image();
-        img.onload = function () {
-          ctx.drawImage(img, 0, 0, newWidth, newHeight);
-          const newImageUrl = canvas.toDataURL("image/png");
-          const link = document.createElement("a");
-          link.href = newImageUrl;
-          link.download = "qr_code.png";
-          link.click(); 
-        };
-        img.src = imageUrl;
-      });
-    }
+      // Compatibilidad con iOS/Android
+      document.body.appendChild(link);
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        window.open(imageUrl, "_blank");
+      } else {
+        link.click();
+      }
+      document.body.removeChild(link);
+    });
   }
+}
 };
