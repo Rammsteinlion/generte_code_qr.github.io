@@ -9,15 +9,21 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+    background-image: linear-gradient(70deg, #ef5c22, rgb(146, 146, 237));
+ border-radius: 20% 30% 80% 10%;
 }
 
 .wrapper {
-  height: 600px;
-  background: #e9dedc;
-  width: 1100px;
+  height: 450px;
+   background-color: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  width: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 10px;
 }
 
 .wrapper__content {
@@ -60,18 +66,20 @@ body {
   cursor: pointer;
 }
 
-.button__generate {
-  width: 120px;
-  height: 38px;
-  border-radius: 20px;
-  outline: none;
+.button__generate, #button__generate {
+  font-family: inherit;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+  color: white;
+  padding: 0.8em 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
-  font-size: 13px;
-  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
   cursor: pointer;
-  display: none;
-  opacity: 0;
-  transition: all 0.5s ease;
 }
 
 .wrapper__content .qr_generate button:hover {
@@ -144,23 +152,6 @@ body {
   text-align: center;
   user-select: none;
   margin-top: 1rem;
-}
-
-.model__alert button {
-  width: 120px;
-  height: 38px;
-  border-radius: 20px;
-  outline: none;
-  border: none;
-  font-size: 13px;
-  text-align: center;
-  cursor: pointer;
-  font-weight: 500;
-  margin-top: 5px;
-}
-
-.model__alert button:hover {
-  transform: scale(1.1);
 }
 
 .model__alert .close__modal {
