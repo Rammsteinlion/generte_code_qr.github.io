@@ -177,9 +177,9 @@ body {
 }
 
 @media (max-width: 600px) {
- .img__qrcode {
-    width: 70vw;  
-    height: 70vw;  
+  .img__qrcode canvas{
+    width: 100%;  
+    height: 100%;  
   }
 
   /* Opcional: ajustar el botón si es necesario */
